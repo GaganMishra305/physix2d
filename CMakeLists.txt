@@ -9,7 +9,7 @@ add_library(physix2d
     src/Vec2.cpp
     src/Body.cpp
     src/World.cpp
-    src/Draw.cpp
+    src/Renderer.cpp
 )
 
 target_include_directories(physix2d PUBLIC include)

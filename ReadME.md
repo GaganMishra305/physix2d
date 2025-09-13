@@ -10,8 +10,8 @@ A 2D physics engine written in C++ (learning & passion project).
 - [x] `Body` (circle-only: pos, vel, mass, radius)  
 - [x] `World` (gravity + integration loop)  
 - [x] `DebugDraw` (SFML/SDL/OpenGL)  
-- [ ] Falling ball demo 🌕  
-- [ ] Rain of balls demo 🌧  
+- [x] Falling ball demo 🌕  
+- [x] Rain of balls demo 🌧  
 - [ ] Bouncing off ground demo ⬇️  
 
 ---
