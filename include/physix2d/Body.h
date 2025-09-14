@@ -13,9 +13,12 @@ private:
 public:
     Body(float x, float y, float r, float m);
     Vec2 getPosition() const;
+    Vec2 getVel() const;
     float getRadius() const;
     float getMass() const;
+    void setVel(Vec2 v);
     
+    // changing the state of a body
     void applyForce(Vec2 force);
     void update();
 };

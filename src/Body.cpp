@@ -29,4 +29,12 @@ float Body::getMass() const {
     return mass;
 }
 
+Vec2 Body::getVel() const {
+    return vel;
+}
+
+void Body::setVel(Vec2 vel_) {
+    vel = vel_;
+}
+
 }

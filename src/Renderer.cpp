@@ -1,4 +1,5 @@
 #include "physix2d/Renderer.h"
+#include <string>
 
 namespace physix2d {
 
@@ -14,6 +15,10 @@ Renderer::~Renderer(){
     if(!window.isOpen()){
         window.close();
     }
+}
+
+void Renderer::setTitle(std::string t) {
+    title = t;
 }
 
 void Renderer::clear() {

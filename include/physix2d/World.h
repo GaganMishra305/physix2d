@@ -13,9 +13,11 @@ private:
     std::vector<Vec2> forces;
 
 public:
+    std::vector<Body>& getBodies();
+
+    // change the world
     void addBody(Body body);
     void addForce(Vec2 force);
-    std::vector<Body>& getBodies();
     void update(float dt);
 };
 
