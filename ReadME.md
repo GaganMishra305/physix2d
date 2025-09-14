@@ -1,5 +1,5 @@
 # Physix2D
-A lightweight 2D physics engine in C++ — built as a learning journey and passion project.  
+A lightweight 2D physics engine in C++, built as a learning journey and passion project.  
 
 ---
 
@@ -12,53 +12,76 @@ A lightweight 2D physics engine in C++ — built as a learning journey and passi
 
 ## ✅ Development Roadmap
 
-### Phase 1: Core Physics + Visual Debug  
-- [x] `Vec2` (vector math)  
+### Phase 1: Core Physics + Visual Debug
+- [x] `Vec2` (basic vector math)  
 - [x] `Body` (circle-only: pos, vel, mass, radius)  
-- [x] `World` (gravity + integration)  
+- [x] `World` (gravity + integration loop)  
 - [x] `DebugDraw` (SFML/SDL/OpenGL)  
-- [x] Falling ball 🌕 | Rain 🌧 | Bounce ⬇️  
+- [x] Falling ball demo 🌕  
+- [x] Rain of balls demo 🌧  
+- [x] Bouncing off ground demo ⬇️  
 
 ---
 
-### Phase 2: Collision Detection & Resolution  
-- [ ] `Shape` hierarchy (`Circle`, `Polygon`)  
+### Phase 2: Collision Detection + Resolution
+- [ ] `Shape` base class  
+- [ ] `CircleShape`, `PolygonShape`  
 - [ ] Collision detection (circle–circle, polygon–polygon)  
-- [ ] Contact manifold + impulse solver  
-- [ ] Demos: Ball pit ⚪ | Box stack 📦 | Domino chain 🧱 | Ball-in-box 🏀  
+- [ ] Contact manifold  
+- [ ] Simple solver (impulse resolution)  
+- [ ] Ball pit demo ⚪  
+- [ ] Box stack demo 📦  
+- [ ] Domino chain demo 🧱  
+- [ ] Ball inside box demo 🏀  
 
 ---
 
-### Phase 3: Joints & Constraints  
-- [ ] `Joint` base + revolute & distance joints  
+### Phase 3: Joints & Constraints
+- [ ] `Joint` base class  
+- [ ] `RevoluteJoint`, `DistanceJoint`  
 - [ ] Island solver  
-- [ ] Demos: Pendulum 🔗 | Rope bridge 🌉 | Ragdoll 🕺 | Newton’s cradle 🪀  
+- [ ] Pendulum demo 🔗  
+- [ ] Rope bridge demo 🌉  
+- [ ] Ragdoll demo 🕺  
+- [ ] Newton’s cradle demo 🪀  
 
 ---
 
-### Phase 4: Advanced Collisions  
-- [ ] Broad-phase (dynamic tree / sweep & prune)  
+### Phase 4: Advanced Collisions (Broad Phase + CCD)
+- [ ] Broad-phase (dynamic tree, sweep & prune)  
 - [ ] Continuous collision detection (TOI)  
-- [ ] Demos: Bullet-through-stack 💥 | Loop track 🎢 | Stress test 🌊  
+- [ ] Bullet through stack demo 💥  
+- [ ] Loop track demo 🎢  
+- [ ] Stress test with thousands of objects 🌊  
 
 ---
 
-### Phase 5: Particles & Fluids  
+### Phase 5: Particles & Fluids
 - [ ] `Particle` + `ParticleSystem`  
 - [ ] Particle contacts  
-- [ ] Demos: Fountain 💧 | Sand pile 🏖 | Smoke ☁️ | Liquid in box 🌊  
+- [ ] Water fountain demo 💧  
+- [ ] Sand pile demo 🏖  
+- [ ] Smoke effect demo ☁️  
+- [ ] Liquid in a box demo 🌊  
 
 ---
 
-### Phase 6: Soft Bodies  
-- [ ] Ropes, cloth, deformables  
-- [ ] Demos: Rope swing 🪢 | Flag in wind 🏴 | Jelly cube 🍮 | Cloth + fluid 🌊  
+### Phase 6: Soft Bodies (Rope, Cloth, Deformables)
+- [ ] `Rope`, `RopeJoint`  
+- [ ] `SoftBody`, `Cloth`  
+- [ ] Rope swing demo 🪢  
+- [ ] Flag in wind demo 🏴  
+- [ ] Jelly cube demo 🍮  
+- [ ] Cloth + fluid interaction demo 🌊  
 
 ---
 
-### Phase 7: Polishing & Showcase  
-- [ ] Callbacks, profiler, memory manager  
-- [ ] Demos: Mixed scene 🎮 | Destructible bridge 🏗 | Tornado 🌀  
+### Phase 7: Polishing + Showcase
+- [ ] World callbacks (begin/end contact)  
+- [ ] Profiler & memory manager  
+- [ ] Mixed scene demo 🎮  
+- [ ] Destructible bridge demo 🏗  
+- [ ] Tornado effect demo 🌀  
 
 ---
 
