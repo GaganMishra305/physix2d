@@ -18,4 +18,10 @@ Types of update:
 **FINAL DESIGN CHOICE: the physics-engine and graphics-rnederer stays deterministic and the demos handle the deltatime as they want to**
 **FUTURE DESIGN CHOICE could be a multthreaded deterministic ohysics-world and dynamic(dt) graphics-renderer**
 
-## Issue2
+## Issue2:
+The demo_file looks to complex due to deterministic nature of the physics engine and handeling of the delta time in the demo.
+Solution -> Utilize a pub-sub model in the future.
+
+---
+
+# Phase 2

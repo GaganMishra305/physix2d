@@ -4,7 +4,6 @@ namespace physix2d {
 
 Body::Body(float x, float y, float r, float m)  : pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f), radius(r), mass(m) {}
 
-
 void Body::applyForce(Vec2 force) {
     // F = ma, so a = F/m
     Vec2 acceleration = Vec2(force.getX() / mass, force.getY() / mass);

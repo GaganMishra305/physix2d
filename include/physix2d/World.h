@@ -16,8 +16,8 @@ public:
     std::vector<Body>& getBodies();
 
     // change the world
-    void addBody(Body body);
-    void addForce(Vec2 force);
+    void addBody(Body &body);
+    void addForce(Vec2 &force);
     void update(float dt);
 };
 

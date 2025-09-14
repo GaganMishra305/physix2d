@@ -12,7 +12,7 @@ A 2D physics engine written in C++ (learning & passion project).
 - [x] `DebugDraw` (SFML/SDL/OpenGL)  
 - [x] Falling ball demo 🌕  
 - [x] Rain of balls demo 🌧  
-- [ ] Bouncing off ground demo ⬇️  
+- [x] Bouncing off ground demo ⬇️  
 
 ---
 
@@ -77,4 +77,6 @@ A 2D physics engine written in C++ (learning & passion project).
 - [ ] Tornado effect demo 🌀  
 
 ---
+
+## Demos: 
 

@@ -12,11 +12,11 @@ void World::update(float dt) {
     forces.clear();
 }
 
-void World::addBody(Body body) {
+void World::addBody(Body &body) {
     bodies.push_back(body);
 }
 
-void World::addForce(Vec2 force) {
+void World::addForce(Vec2 &force) {
     forces.push_back(force);
 }
 

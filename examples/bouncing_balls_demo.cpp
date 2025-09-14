@@ -8,9 +8,23 @@
 
 using namespace physix2d;
 
+/*
+    Modify below variables and code to play around with the demo
+*/
 const int WIDTH = 800, HEIGHT = 600;
 const int N_BALLS = 100;
 const int DOWNFORCE = 1.5f; // change this to change falling speed
+void collisionLogic(World &world){
+    for(Body &b : world.getBodies()){
+        if(b.getPosition().getY() + b.getRadius() > HEIGHT or b.getPosition().getY() - b.getRadius() < 0){ // vertical limits
+            b.setVel(Vec2(b.getVel().getX() , b.getVel().getY() * -1.0f));
+        }
+        if(b.getPosition().getX() + b.getRadius() > WIDTH or b.getPosition().getX() - b.getRadius() < 0){ // horizontal limimts limits
+            b.setVel(Vec2(b.getVel().getX() * -1.0f, b.getVel().getY()));
+        }
+    }
+}
+
 
 int main() {
     std::cout << "Starting Physix2D Falling Circles Demo!" << std::endl;
@@ -62,14 +76,7 @@ int main() {
         }
 
         // checking collision
-        for(Body &b : world.getBodies()){
-            if(b.getPosition().getY() + b.getRadius() > HEIGHT or b.getPosition().getY() - b.getRadius() < 0){ // vertical limits
-                b.setVel(Vec2(b.getVel().getX() , b.getVel().getY() * -1.0f));
-            }
-            if(b.getPosition().getX() + b.getRadius() > WIDTH or b.getPosition().getX() - b.getRadius() < 0){ // horizontal limimts limits
-                b.setVel(Vec2(b.getVel().getX() * -1.0f, b.getVel().getY()));
-            }
-        }
+        collisionLogic(world);
         
         // rendering
         renderer.clear();
