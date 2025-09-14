@@ -21,7 +21,7 @@ Types of update:
 ## Issue2:
 The demo_file looks to complex due to deterministic nature of the physics engine and handeling of the delta time in the demo.
 Solution -> Utilize a pub-sub model in the future.
-
+Added '''Engine''' class for abstraction while creating Demos.
 ---
 
 # Phase 2

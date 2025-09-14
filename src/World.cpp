@@ -16,7 +16,7 @@ void World::addBody(Body &body) {
     bodies.push_back(body);
 }
 
-void World::addForce(Vec2 &force) {
+void World::addForce(const Vec2 &force) {
     forces.push_back(force);
 }
 

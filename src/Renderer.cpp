@@ -1,5 +1,7 @@
 #include "physix2d/Renderer.h"
 #include <string>
+#include <stdio.h>
+#include <iostream>
 
 namespace physix2d {
 
@@ -7,18 +9,15 @@ Renderer::Renderer() : window(sf::VideoMode(dx, dy), title) {
     window.setFramerateLimit(fps);
 }
 
-Renderer::Renderer(int x, int y) : dx(x), dy(y), window(sf::VideoMode(dx, dy), title) {
+Renderer::Renderer(int dx_, int dy_, std::string title_) : dx(dx_), dy(dy_), title(title_), window(sf::VideoMode(dx, dy), title){
     window.setFramerateLimit(fps);
 }
+
 
 Renderer::~Renderer(){
     if(!window.isOpen()){
         window.close();
     }
-}
-
-void Renderer::setTitle(std::string t) {
-    title = t;
 }
 
 void Renderer::clear() {

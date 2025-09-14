@@ -17,7 +17,7 @@ public:
 
     // change the world
     void addBody(Body &body);
-    void addForce(Vec2 &force);
+    void addForce(const Vec2 &force);
     void update(float dt);
 };
 

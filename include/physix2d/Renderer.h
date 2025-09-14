@@ -13,8 +13,7 @@ private:
 public:
     Renderer();
     ~Renderer();
-    Renderer(int dx_, int dy_);
-    void setTitle(std::string title_);
+    Renderer(int dx_, int dy_, std::string title_ = "Physix Simulation");
 
     // drawing
     void clear();
