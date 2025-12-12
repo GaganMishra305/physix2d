@@ -6,4 +6,4 @@ cd build
 cmake ..
 make -j$(nproc)
 
-echo "✅ Physix2D library built successfully!"
+echo "Physix2D library built successfully!"

@@ -8,4 +8,4 @@ cd $BUILD_DIR
 cmake ..
 make -j$(nproc)
 
-echo "✅ All examples built successfully!"
+echo "All examples built successfully!"
