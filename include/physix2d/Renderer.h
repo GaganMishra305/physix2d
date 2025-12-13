@@ -8,12 +8,14 @@ private:
     int dx = 400, dy = 400; // dimension x and y
     std::string title = "Physix Simulation";
     int fps = 60;
+    int frameCount = 0;
     sf::RenderWindow window;
 
 public:
     Renderer();
     ~Renderer();
     Renderer(int dx_, int dy_, std::string title_ = "Physix Simulation");
+    int getFrameCount() const;
 
     // drawing
     void clear();

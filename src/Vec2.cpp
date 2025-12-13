@@ -13,6 +13,10 @@ float Vec2::getY() const {
     return y;
 }
 
+float Vec2::getMag() const {
+    return sqrtf(x*x + y*y);
+}
+
 int Vec2::dot(Vec2 v) {
     return static_cast<int>(x * v.x + y * v.y);
 }
@@ -28,6 +32,10 @@ Vec2 Vec2::add(Vec2 v) {
 
 Vec2 Vec2::operator+(const Vec2& other) {
     return Vec2(x + other.x, y + other.y);
+}
+
+Vec2 Vec2::operator-(const Vec2& other) {
+    return Vec2(x - other.x, y - other.y);
 }
 
 Vec2 Vec2::operator*(float scalar) {

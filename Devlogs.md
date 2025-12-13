@@ -25,3 +25,7 @@ Added '''Engine''' class for abstraction while creating Demos.
 ---
 
 # Phase 2
+Adding collision logic - single instance brute force resolution for now ... [OPTIMIZE THIS LATER]
+
+these are the standard commit msgs being used
+![Commit msg standard](/assets/commits-msgs.png)

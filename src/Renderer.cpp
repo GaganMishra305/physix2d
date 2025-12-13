@@ -20,6 +20,10 @@ Renderer::~Renderer(){
     }
 }
 
+int Renderer::getFrameCount() const{
+    return frameCount;
+}
+
 void Renderer::clear() {
     window.clear(sf::Color::Black);
 }
@@ -39,6 +43,7 @@ void Renderer::draw(World& world) {
         circle.setOutlineColor(sf::Color::Red);
         window.draw(circle);
     }
+    frameCount++;
 }
 
 bool Renderer::isOpen() const {

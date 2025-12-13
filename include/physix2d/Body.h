@@ -17,6 +17,7 @@ public:
     float getRadius() const;
     float getMass() const;
     void setVel(Vec2 v);
+    void setPos(Vec2 pos_);
     
     // changing the state of a body
     void applyForce(Vec2 force);

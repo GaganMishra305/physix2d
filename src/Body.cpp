@@ -32,6 +32,10 @@ Vec2 Body::getVel() const {
     return vel;
 }
 
+void Body::setPos(Vec2 pos_) {
+    pos = pos_;
+}
+
 void Body::setVel(Vec2 vel_) {
     vel = vel_;
 }
