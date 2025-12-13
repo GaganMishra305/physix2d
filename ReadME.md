@@ -5,9 +5,23 @@ A lightweight 2D physics engine in C++, built as a learning journey and passion 
 
 ## 🚀 Getting Started
 1. Build the library: `./build_lib.sh`  
-2. Create a demo in the `examples/` folder and build it: `./build_examples`  
+2. Create a demo in the `examples/src/my_demo` folder and build it: `./examples/build_examples.sh`  
 3. Run your demo: `./build/my_demo`  
 
+---
+
+---
+
+## 🎥 Demos
+### 1. Bouncing Balls  
+<video controls src="assets/bouncing_balls.mp4" title="Bouncing Balls Demo"></video>  
+
+---
+
+### 2. Colliding Balls  
+<video controls src="assets/colliding_balls.mp4" title="Bouncing Balls Demo"></video>  
+
+---
 ---
 
 ## ✅ Development Roadmap
@@ -85,6 +99,9 @@ A lightweight 2D physics engine in C++, built as a learning journey and passion 
 
 ---
 
-## 🎥 Demos
-### 1. Bouncing Balls  
-<video controls src="https://github.com/user-attachments/assets/c6a3d3f9-1e3b-416a-9875-dc1ea4957843" title="Bouncing Balls Demo"></video>  
+### BONUS: Advanced Simulations -
+- [ ] Clothe simulation
+- [ ] Fluid simulation
+- [ ] Smoke simulation
+
+---
