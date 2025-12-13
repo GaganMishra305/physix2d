@@ -15,12 +15,11 @@ void addBody(World &world) {
     std::mt19937 gen(std::random_device{}());
     std::uniform_real_distribution<float> rDist(15.0f, 35.0f);
     float r = rDist(gen);
-    Body body(WIDTH * 0.5f, HEIGHT * 0.5f, r, r / 50.0f);
-    Vec2 vel = Vec2::random2d();
+    Body body(WIDTH * 0.5f, HEIGHT * 0.5f, r, 1.0f);
+    Vec2 vel = Vec2::random2d() * 2.0f;
     vel.y = 0;
     body.setVel(vel);
     world.addBody(body);
-    world.addForce(Vec2(0.0f, DOWNFORCE));
 }
 
 void updateWorld(World &world, Renderer &r) {
@@ -29,6 +28,11 @@ void updateWorld(World &world, Renderer &r) {
     }
 
     auto& bodies = world.getBodies();
+    
+    // Apply gravity to each body every frame
+    for (size_t i = 0; i < bodies.size(); ++i) {
+        world.addForce(Vec2(0.0f, DOWNFORCE));
+    }
     
     // Wall collisions with positional correction
     for (Body &b : bodies) {
@@ -43,7 +47,9 @@ void updateWorld(World &world, Renderer &r) {
     }
 }
 
-void setupWorld(World &world) {}
+void setupWorld(World &world) {
+    // No forces needed here - added per-frame in updateWorld
+}
 
 int main() {
     Engine engine(WIDTH, HEIGHT);

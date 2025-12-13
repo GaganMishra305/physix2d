@@ -16,7 +16,7 @@ target_include_directories(physix2d PUBLIC
 )
 
 # Auto-detect all .cpp files in current directory
-file(GLOB DEMO_SOURCES "*.cpp")
+file(GLOB DEMO_SOURCES "src/*.cpp")
 # Create executables for each .cpp file
 foreach(demo_source ${DEMO_SOURCES})
     get_filename_component(demo_name ${demo_source} NAME_WE)

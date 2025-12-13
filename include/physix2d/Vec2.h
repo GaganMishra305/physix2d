@@ -6,8 +6,6 @@ class Vec2{
 public:
     float x = 0.0f;
     float y = 0.0f;
-    float getX() const;
-    float getY() const;
     float getMag() const;
 
     // custom operations

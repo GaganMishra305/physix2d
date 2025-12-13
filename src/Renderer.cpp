@@ -37,7 +37,7 @@ void Renderer::draw(World& world) {
     for (const auto& body : bodies) {
         sf::CircleShape circle(body.getRadius());
         Vec2 pos = body.getPosition();
-        circle.setPosition(pos.getX() - body.getRadius(), pos.getY() - body.getRadius());
+        circle.setPosition(pos.x - body.getRadius(), pos.y - body.getRadius());
         circle.setFillColor(sf::Color::White);
         circle.setOutlineThickness(2.0f);
         circle.setOutlineColor(sf::Color::Red);

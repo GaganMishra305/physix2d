@@ -14,13 +14,13 @@ const int WIDTH = 1000, HEIGHT = 800, N_BALLS = 75;
 const float DOWNFORCE = 0.5f;
 void collisionLogic(World &world) {
     for (Body &b : world.getBodies()) {
-        float x = b.getPosition().getX();
-        float y = b.getPosition().getY();
+        float x = b.getPosition().x;
+        float y = b.getPosition().y;
         float r = b.getRadius();
         Vec2 v = b.getVel();
 
-        if (y + r > HEIGHT || y - r < 0) b.setVel(Vec2(v.getX(), -v.getY()));
-        if (x + r > WIDTH || x - r < 0) b.setVel(Vec2(-v.getX(), v.getY()));
+        if (y + r > HEIGHT || y - r < 0) b.setVel(Vec2(v.x, -v.y));
+        if (x + r > WIDTH || x - r < 0) b.setVel(Vec2(-v.x, v.y));
     }
 }
 

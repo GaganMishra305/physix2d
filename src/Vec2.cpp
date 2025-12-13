@@ -5,14 +5,6 @@ namespace physix2d {
 
 Vec2::Vec2(float x_, float y_) : x(x_), y(y_) {}
 
-float Vec2::getX() const {
-    return x;
-}
-
-float Vec2::getY() const {
-    return y;
-}
-
 float Vec2::getMag() const {
     return sqrtf(x*x + y*y);
 }

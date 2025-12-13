@@ -6,7 +6,7 @@ Body::Body(float x, float y, float r, float m)  : pos(x, y), vel(0.0f, 0.0f), ac
 
 void Body::applyForce(Vec2 force) {
     // F = ma, so a = F/m
-    Vec2 acceleration = Vec2(force.getX() / mass, force.getY() / mass);
+    Vec2 acceleration = Vec2(force.x / mass, force.y / mass);
     acc = acc.add(acceleration);
 }
 
