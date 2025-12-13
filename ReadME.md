@@ -26,11 +26,11 @@ A lightweight 2D physics engine in C++, built as a learning journey and passion 
 ### Phase 2: Collision Detection + Resolution
 - [ ] `Shape` base class  
 - [ ] `CircleShape`, `PolygonShape`  
-- [ ] Collision detection (circle–circle, polygon–polygon)  
-- [ ] Contact manifold  
-- [ ] Simple solver (impulse resolution)  
-- [ ] Ball pit demo ⚪  
-- [ ] Box stack demo 📦  
+- [x] Collision detection (circle–circle, polygon–polygon)  
+- [x] Contact manifold  
+- [x] Simple solver (impulse resolution)  
+- [x] Ball pit demo ⚪  
+- [x] Box stack demo 📦  
 - [ ] Domino chain demo 🧱  
 - [ ] Ball inside box demo 🏀  
 

@@ -3,24 +3,26 @@
 namespace physix2d {
 
 void World::update(float dt) {
-    for (size_t i = 0; i < bodies.size() && i < forces.size(); ++i) {
-        bodies[i].applyForce(forces[i]);
-    }
-    for (auto& body : bodies) {
-        body.update();
-    }
-    forces.clear();
+    for (auto& b : bodies)
+        b.clearForces();
+
+    for (auto& f : forces)
+        f->apply(dt);
+
+    for (auto& b : bodies)
+        b.update(dt);
 }
 
-void World::addBody(Body &body) {
+Body& World::addBody(const Body& body) {
     bodies.push_back(body);
+    return bodies.back();
 }
 
-void World::addForce(const Vec2 &force) {
-    forces.push_back(force);
+void World::addForce(std::unique_ptr<Force> force) {
+    forces.push_back(std::move(force));
 }
 
-std::vector<Body>& World::getBodies() {
+std::deque<Body>& World::getBodies() {
     return bodies;
 }
 

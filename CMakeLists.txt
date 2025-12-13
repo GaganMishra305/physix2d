@@ -12,6 +12,7 @@ add_library(physix2d
     src/Renderer.cpp
     src/Engine.cpp
     src/Collision.cpp
+    src/GravityForce.cpp
 )
 
 target_include_directories(physix2d PUBLIC include)

@@ -39,7 +39,7 @@ void Renderer::draw(World& world) {
         Vec2 pos = body.getPosition();
         circle.setPosition(pos.x - body.getRadius(), pos.y - body.getRadius());
         circle.setFillColor(sf::Color::White);
-        circle.setOutlineThickness(2.0f);
+        circle.setOutlineThickness(0.0f);
         circle.setOutlineColor(sf::Color::Red);
         window.draw(circle);
     }

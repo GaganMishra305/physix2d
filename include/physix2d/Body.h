@@ -7,6 +7,7 @@ namespace physix2d {
 class Body{
 private:
     Vec2 pos, vel, acc;
+    Vec2 forceAccumulator;
     float radius;
     float mass;
 
@@ -20,8 +21,9 @@ public:
     void setPos(Vec2 pos_);
     
     // changing the state of a body
-    void applyForce(Vec2 force);
-    void update();
+    void applyForce(const Vec2& f);
+    void clearForces();
+    void update(float dt);
 };
 
 }

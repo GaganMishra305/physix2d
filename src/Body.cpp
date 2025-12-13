@@ -2,18 +2,22 @@
 
 namespace physix2d {
 
-Body::Body(float x, float y, float r, float m)  : pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f), radius(r), mass(m) {}
+Body::Body(float x, float y, float r, float m)  : pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f), forceAccumulator(0.0f, 0.0f), radius(r), mass(m) {}
 
-void Body::applyForce(Vec2 force) {
-    // F = ma, so a = F/m
-    Vec2 acceleration = Vec2(force.x / mass, force.y / mass);
-    acc = acc.add(acceleration);
+void Body::applyForce(const Vec2& f) {
+    forceAccumulator = forceAccumulator + f;
 }
 
-void Body::update() {
-    vel = vel.add(acc);
-    pos = pos.add(vel);
-    acc = Vec2(0.0f, 0.0f);
+//[TODO: add velocity dampening to avoid jittering]
+void Body::update(float dt) {
+    acc = forceAccumulator * (1 / mass);
+    vel = vel + acc * dt;
+    pos = pos + vel * dt;
+    clearForces();
+}
+
+void Body::clearForces() {
+    forceAccumulator = Vec2(0.0f, 0.0f);
 }
 
 Vec2 Body::getPosition() const {
