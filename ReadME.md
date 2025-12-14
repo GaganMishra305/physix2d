@@ -13,13 +13,7 @@ A lightweight 2D physics engine in C++, built as a learning journey and passion 
 ---
 
 ## 🎥 Demos
-### 1. Bouncing Balls  
-<video controls src="assets/bouncing_balls.mp4" title="Bouncing Balls Demo"></video>  
-
----
-
-### 2. Colliding Balls  
-<video controls src="assets/colliding_balls.mp4" title="Bouncing Balls Demo"></video>  
+### in the assets directory
 
 ---
 ---
