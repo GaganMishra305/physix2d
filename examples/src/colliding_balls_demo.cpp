@@ -63,7 +63,7 @@ int main() {
 
     gravityForce = gravity.get();
     world.addForce(std::move(gravity));
-    engine.userLogic = [](World &world, Renderer &renderer) {
+    engine.userLogic = [](World &world, Renderer &renderer, float dt) {
         userLogic(world, renderer);
     };
 

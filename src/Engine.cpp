@@ -34,7 +34,7 @@ void Engine::run() {
         // Fixed timestep physics update
         while (accumulator >= targetDt) {
             world.update(targetDt);
-            userLogic(world, renderer); // HERE THE CORE LOGIC OF THE END USER WOULD BE PLUGGED IN FOR NOW
+            userLogic(world, renderer, deltaTime); // HERE THE CORE LOGIC OF THE END USER WOULD BE PLUGGED IN FOR NOW
             accumulator -= targetDt;
         }
 

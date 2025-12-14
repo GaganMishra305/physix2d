@@ -21,7 +21,7 @@ public:
     Engine(int width, int height, std::string title);
     World& getWorld();
     Renderer& getRenderer();
-    std::function<void(World&, Renderer&)> userLogic;
+    std::function<void(World&, Renderer&, float dt)> userLogic;
 
     
     // runs the engine

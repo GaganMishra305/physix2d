@@ -5,14 +5,13 @@
 namespace physix2d {
 
 class Body{
-private:
+public:
     Vec2 pos, vel, acc;
     Vec2 prev_pos;
     Vec2 forceAccumulator;
     float radius;
     float mass;
 
-public:
     Body(float x, float y, float r, float m);
     Vec2 getPosition() const;
     Vec2 getVel() const;

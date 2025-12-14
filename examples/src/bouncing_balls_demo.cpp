@@ -66,7 +66,7 @@ int main() {
 
     setupWorld(engine.getWorld());
 
-    engine.userLogic = [](World &w, Renderer &) {
+    engine.userLogic = [](World &w, Renderer &, float dt) {
         collisionLogic(w);
     };
 
