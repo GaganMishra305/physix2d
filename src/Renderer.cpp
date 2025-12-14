@@ -33,15 +33,20 @@ void Renderer::display() {
 }
 
 void Renderer::draw(World& world) {
-    auto& bodies = world.getBodies();
-    for (const auto& body : bodies) {
-        sf::CircleShape circle(body.getRadius());
-        Vec2 pos = body.getPosition();
-        circle.setPosition(pos.x - body.getRadius(), pos.y - body.getRadius());
-        circle.setFillColor(sf::Color::White);
-        circle.setOutlineThickness(0.0f);
-        circle.setOutlineColor(sf::Color::Red);
-        window.draw(circle);
+    if (customDraw) {
+        customDraw(window, world);
+    } else {
+        // Default rendering
+        auto& bodies = world.getBodies();
+        for (const auto& body : bodies) {
+            sf::CircleShape circle(body.getRadius());
+            Vec2 pos = body.getPosition();
+            circle.setPosition(pos.x - body.getRadius(), pos.y - body.getRadius());
+            circle.setFillColor(sf::Color::White);
+            circle.setOutlineThickness(2.0f);
+            circle.setOutlineColor(sf::Color::Red);
+            window.draw(circle);
+        }
     }
     frameCount++;
 }

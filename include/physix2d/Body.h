@@ -7,6 +7,7 @@ namespace physix2d {
 class Body{
 private:
     Vec2 pos, vel, acc;
+    Vec2 prev_pos;
     Vec2 forceAccumulator;
     float radius;
     float mass;

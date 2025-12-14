@@ -9,6 +9,7 @@ public:
     float getMag() const;
 
     // custom operations
+    Vec2() : x(0.0f), y(0.0f) {};
     Vec2(float x_, float y_);
     int dot(Vec2 v);
     Vec2 cross(Vec2 v);

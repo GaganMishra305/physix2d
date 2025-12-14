@@ -2,7 +2,7 @@
 
 namespace physix2d {
 
-Body::Body(float x, float y, float r, float m)  : pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f), forceAccumulator(0.0f, 0.0f), radius(r), mass(m) {}
+Body::Body(float x, float y, float r, float m)  : pos(x, y), prev_pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f), forceAccumulator(0.0f, 0.0f), radius(r), mass(m) {}
 
 void Body::applyForce(const Vec2& f) {
     forceAccumulator = forceAccumulator + f;
