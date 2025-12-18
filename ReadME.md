@@ -15,6 +15,16 @@ A lightweight 2D physics engine in C++, built as a learning journey and passion 
 ## 🎥 Demos
 ### in the assets directory
 
+
+
+https://github.com/user-attachments/assets/15f7561c-8737-4b19-9882-5bd4db840516
+
+
+
+https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
+
+
+
 ---
 ---
 
