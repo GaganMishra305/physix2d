@@ -1,55 +1,86 @@
 #include "physix2d/Vec2.h"
+#include <cmath>
 #include <random>
 
 namespace physix2d {
 
 Vec2::Vec2(float x_, float y_) : x(x_), y(y_) {}
 
+float Vec2::lengthSq() const {
+    return x * x + y * y;
+}
+
 float Vec2::getMag() const {
-    return sqrtf(x*x + y*y);
+    return std::sqrt(lengthSq());
 }
 
-int Vec2::dot(Vec2 v) {
-    return static_cast<int>(x * v.x + y * v.y);
+Vec2 Vec2::normalized() const {
+    float m = getMag();
+    if (m <= 1e-8f) return Vec2(0.0f, 0.0f);
+    return Vec2(x / m, y / m);
 }
 
-Vec2 Vec2::cross(Vec2 v) {
-    float cross_product = x * v.y - y * v.x;
-    return Vec2(cross_product, cross_product);
+float Vec2::dot(const Vec2& v) const {
+    return x * v.x + y * v.y;
 }
 
-Vec2 Vec2::add(Vec2 v) {
+float Vec2::cross(const Vec2& v) const {
+    return x * v.y - y * v.x;
+}
+
+Vec2 Vec2::add(const Vec2& v) const {
     return Vec2(x + v.x, y + v.y);
 }
 
-Vec2 Vec2::operator+(const Vec2& other) {
+float Vec2::distance(const Vec2& a, const Vec2& b) {
+    return (a - b).getMag();
+}
+
+Vec2 Vec2::operator+(const Vec2& other) const {
     return Vec2(x + other.x, y + other.y);
 }
 
-Vec2 Vec2::operator-(const Vec2& other) {
+Vec2 Vec2::operator-(const Vec2& other) const {
     return Vec2(x - other.x, y - other.y);
 }
 
-Vec2 Vec2::operator*(float scalar) {
+Vec2 Vec2::operator-() const {
+    return Vec2(-x, -y);
+}
+
+Vec2 Vec2::operator*(float scalar) const {
     return Vec2(x * scalar, y * scalar);
+}
+
+Vec2 Vec2::operator/(float scalar) const {
+    return Vec2(x / scalar, y / scalar);
 }
 
 Vec2 operator*(float scalar, const Vec2& vec) {
     return Vec2(vec.x * scalar, vec.y * scalar);
 }
 
-Vec2& Vec2::operator=(const Vec2& other) {
-    if (this != &other) { // Self-assignment check
-        x = other.x;
-        y = other.y;
-    }
+Vec2& Vec2::operator+=(const Vec2& other) {
+    x += other.x;
+    y += other.y;
     return *this;
 }
 
-Vec2 Vec2::random2d(){
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> real_distrib(-1.0, 1.0);
+Vec2& Vec2::operator-=(const Vec2& other) {
+    x -= other.x;
+    y -= other.y;
+    return *this;
+}
+
+Vec2& Vec2::operator*=(float scalar) {
+    x *= scalar;
+    y *= scalar;
+    return *this;
+}
+
+Vec2 Vec2::random2d() {
+    static std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<float> real_distrib(-1.0f, 1.0f);
     return Vec2(real_distrib(gen), real_distrib(gen));
 }
 
