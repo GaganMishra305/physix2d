@@ -2,16 +2,31 @@
 
 namespace physix2d {
 
-Body::Body(float x, float y, float r, float m)  : pos(x, y), prev_pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f), forceAccumulator(0.0f, 0.0f), radius(r), mass(m) {}
-
-void Body::applyForce(const Vec2& f) {
-    forceAccumulator = forceAccumulator + f;
+Body::Body(float x, float y, float r, float m)
+    : pos(x, y), vel(0.0f, 0.0f), acc(0.0f, 0.0f),
+      prev_pos(x, y), forceAccumulator(0.0f, 0.0f),
+      radius(r), mass(m) {
+    setMass(m);
 }
 
-//[TODO: add velocity dampening to avoid jittering]
+void Body::setMass(float m) {
+    mass = m;
+    invMass = (m > 0.0f) ? (1.0f / m) : 0.0f;   // m <= 0 => static / infinite mass
+}
+
+void Body::applyForce(const Vec2& f) {
+    forceAccumulator += f;
+}
+
 void Body::update(float dt) {
-    acc = forceAccumulator * (1 / mass);
+    // Static bodies never move; just drop any accumulated force.
+    if (invMass == 0.0f) {
+        clearForces();
+        return;
+    }
+    acc = forceAccumulator * invMass;
     vel = vel + acc * dt;
+    prev_pos = pos;
     pos = pos + vel * dt;
     clearForces();
 }
@@ -30,6 +45,14 @@ float Body::getRadius() const {
 
 float Body::getMass() const {
     return mass;
+}
+
+float Body::getInvMass() const {
+    return invMass;
+}
+
+bool Body::isStatic() const {
+    return invMass == 0.0f;
 }
 
 Vec2 Body::getVel() const {
