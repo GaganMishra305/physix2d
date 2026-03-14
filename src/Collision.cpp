@@ -14,12 +14,15 @@ bool Collision::resolveCircleVsCircle(Body& a, Body& b, float restitution) {
     Vec2 n(d.x / dist, d.y / dist);
     float penetration = r - dist;
 
+    float invA = a.getInvMass();
+    float invB = b.getInvMass();
+    float invSum = invA + invB;
+    if (invSum == 0.0f) return true; // both static: nothing to resolve
+
     // Positional correction (Baumgarte)
     const float percent = 0.6f;
     const float slop = 0.01f;
-    float invA = 1.0f / a.getMass();
-    float invB = 1.0f / b.getMass();
-    float corrMag = std::max(penetration - slop, 0.0f) * percent / (invA + invB);
+    float corrMag = std::max(penetration - slop, 0.0f) * percent / invSum;
     Vec2 correction(n.x * corrMag, n.y * corrMag);
     Vec2 aPos = a.getPosition();
     Vec2 bPos = b.getPosition();
@@ -30,7 +33,7 @@ bool Collision::resolveCircleVsCircle(Body& a, Body& b, float restitution) {
     Vec2 rv(b.getVel().x - a.getVel().x, b.getVel().y - a.getVel().y);
     float velAlongNormal = rv.x*n.x + rv.y*n.y;
     if (velAlongNormal > 0) return true;
-    float j = -(1.0f + restitution) * velAlongNormal / (invA + invB);
+    float j = -(1.0f + restitution) * velAlongNormal / invSum;
     Vec2 impulse(n.x*j, n.y*j);
     a.setVel(Vec2(a.getVel().x - impulse.x * invA,  a.getVel().y - impulse.y * invA));
     b.setVel(Vec2(b.getVel().x + impulse.x * invB,  b.getVel().y + impulse.y * invB));
@@ -38,6 +41,7 @@ bool Collision::resolveCircleVsCircle(Body& a, Body& b, float restitution) {
 }
 
 void Collision::resolveWallCollisions(Body& b, float minX, float maxX, float minY, float maxY, float restitution) {
+    if (b.isStatic()) return; // walls can't push an immovable body
     Vec2 pos = b.getPosition();
     Vec2 vel = b.getVel();
     float r = b.getRadius();
