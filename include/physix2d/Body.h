@@ -14,6 +14,7 @@ public:
     float radius;
     float mass;
     float invMass;   // 0 for static bodies -- precomputed to keep the solver branch-free
+    float linearDamping = 0.0f; // velocity decay per second; tames the collision jitter
 
     Body(float x, float y, float r, float m);
     Vec2 getPosition() const;
@@ -25,6 +26,7 @@ public:
     void setVel(Vec2 v);
     void setPos(Vec2 pos_);
     void setMass(float m);
+    void setDamping(float d);
 
     // changing the state of a body
     void applyForce(const Vec2& f);
