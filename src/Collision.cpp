@@ -34,9 +34,23 @@ bool Collision::resolveCircleVsCircle(Body& a, Body& b, float restitution) {
     float velAlongNormal = rv.x*n.x + rv.y*n.y;
     if (velAlongNormal > 0) return true;
     float j = -(1.0f + restitution) * velAlongNormal / invSum;
-    Vec2 impulse(n.x*j, n.y*j);
-    a.setVel(Vec2(a.getVel().x - impulse.x * invA,  a.getVel().y - impulse.y * invA));
-    b.setVel(Vec2(b.getVel().x + impulse.x * invB,  b.getVel().y + impulse.y * invB));
+    Vec2 impulse = n * j;
+    a.setVel(a.getVel() - impulse * invA);
+    b.setVel(b.getVel() + impulse * invB);
+
+    // Coulomb friction (tangential impulse), clamped to the friction cone.
+    Vec2 rv2 = b.getVel() - a.getVel();
+    Vec2 tangent = rv2 - n * rv2.dot(n);
+    if (tangent.lengthSq() > 1e-8f) {
+        tangent = tangent.normalized();
+        float jt = -rv2.dot(tangent) / invSum;
+        float mu = std::sqrt(a.friction * b.friction);
+        float maxFriction = mu * std::abs(j);
+        jt = std::max(-maxFriction, std::min(jt, maxFriction));
+        Vec2 frictionImpulse = tangent * jt;
+        a.setVel(a.getVel() - frictionImpulse * invA);
+        b.setVel(b.getVel() + frictionImpulse * invB);
+    }
     return true;
 }
 

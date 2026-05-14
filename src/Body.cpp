@@ -18,6 +18,10 @@ void Body::setDamping(float d) {
     linearDamping = (d > 0.0f) ? d : 0.0f;
 }
 
+void Body::setFriction(float f) {
+    friction = f < 0.0f ? 0.0f : (f > 1.0f ? 1.0f : f);
+}
+
 void Body::applyForce(const Vec2& f) {
     forceAccumulator += f;
 }
