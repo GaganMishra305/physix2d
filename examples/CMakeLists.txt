@@ -4,9 +4,9 @@ project(physix2d_examples LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find SFML
+# Find SFML (only the modules we actually use -- no audio, so no openal dep)
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(SFML REQUIRED sfml-all>=2.4)
+pkg_check_modules(SFML REQUIRED sfml-graphics>=2.4 sfml-window sfml-system)
 
 # Point to parent library
 add_subdirectory(.. ${CMAKE_BINARY_DIR}/physix2d_build)

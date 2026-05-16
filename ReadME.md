@@ -46,11 +46,14 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 - [ ] `CircleShape`, `PolygonShape`  
 - [x] Collision detection (circle–circle, polygon–polygon)  
 - [x] Contact manifold  
-- [x] Simple solver (impulse resolution)  
-- [x] Ball pit demo ⚪  
-- [x] Box stack demo 📦  
-- [ ] Domino chain demo 🧱  
-- [ ] Ball inside box demo 🏀  
+- [x] Simple solver (impulse resolution + Coulomb friction)  
+- [x] Inverse-mass / static bodies (immovable floors & walls)  
+- [x] Linear damping (kills collision jitter)  
+- [x] Uniform spatial-hash broad phase (prunes O(n²) checks)  
+- [x] Ball pit demo   
+- [x] Box stack demo   
+- [ ] Domino chain demo   
+- [x] Ball inside box demo   
 
 ---
 
