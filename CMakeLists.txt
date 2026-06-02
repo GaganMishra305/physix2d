@@ -13,6 +13,7 @@ pkg_check_modules(SFML REQUIRED sfml-graphics>=2.4 sfml-window sfml-system)
 add_library(physix2d
     src/Vec2.cpp
     src/Body.cpp
+    src/CircleShape.cpp
     src/World.cpp
     src/Renderer.cpp
     src/Engine.cpp
