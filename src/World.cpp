@@ -11,6 +11,11 @@ void World::update(float dt) {
 
     for (auto& b : bodies)
         b.update(dt);
+
+    // Constraint solve (multiple iterations for stiffness/stability).
+    for (int it = 0; it < jointIterations; ++it)
+        for (auto& j : joints)
+            j->solve(dt);
 }
 
 Body& World::addBody(const Body& body) {
@@ -20,6 +25,14 @@ Body& World::addBody(const Body& body) {
 
 void World::addForce(std::unique_ptr<Force> force) {
     forces.push_back(std::move(force));
+}
+
+void World::addJoint(std::unique_ptr<Joint> joint) {
+    joints.push_back(std::move(joint));
+}
+
+void World::setJointIterations(int n) {
+    jointIterations = (n > 0) ? n : 1;
 }
 
 std::deque<Body>& World::getBodies() {
