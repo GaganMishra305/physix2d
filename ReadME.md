@@ -59,13 +59,13 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 ---
 
 ### Phase 3: Joints & Constraints
-- [ ] `Joint` base class  
+- [x] `Joint` base class  
 - [ ] `RevoluteJoint`, `DistanceJoint`  
 - [ ] Island solver  
-- [ ] Pendulum demo 🔗  
-- [ ] Rope bridge demo 🌉  
-- [ ] Ragdoll demo 🕺  
-- [ ] Newton’s cradle demo 🪀  
+- [x] Pendulum demo   
+- [ ] Rope bridge demo   
+- [ ] Ragdoll demo   
+- [ ] Newton’s cradle demo   
 
 ---
 
