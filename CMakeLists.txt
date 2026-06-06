@@ -14,6 +14,7 @@ add_library(physix2d
     src/Vec2.cpp
     src/Body.cpp
     src/CircleShape.cpp
+    src/PolygonShape.cpp
     src/World.cpp
     src/Renderer.cpp
     src/Engine.cpp
