@@ -28,6 +28,9 @@ public:
         customDraw = callback;
     }
 
+    // Save the current window framebuffer to a PNG (great for README shots).
+    bool saveScreenshot(const std::string& path);
+
     // window management
     bool isOpen() const;
     bool pollEvent(sf::Event& event);

@@ -73,6 +73,14 @@ void Renderer::draw(World& world) {
     frameCount++;
 }
 
+bool Renderer::saveScreenshot(const std::string& path) {
+    sf::Vector2u size = window.getSize();
+    sf::Texture texture;
+    if (!texture.create(size.x, size.y)) return false;
+    texture.update(window);
+    return texture.copyToImage().saveToFile(path);
+}
+
 bool Renderer::isOpen() const {
     return window.isOpen();
 }
