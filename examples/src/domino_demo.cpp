@@ -18,14 +18,18 @@ const int   WIDTH = 1200, HEIGHT = 700;
 const float GRAVITY = 900.0f;
 const int   N_DOMINOES = 14;
 const float DOM_HW = 6.0f, DOM_HH = 42.0f;   // half-width, half-height
-const float SPACING = 55.0f;
+const float SPACING = 48.0f;                 // < domino height so each reaches the next
 const float GROUND_TOP = 640.0f;
 const float CELL_SIZE = 110.0f;
+const float GROUND_FRICTION = 0.7f;          // grip so dominoes PIVOT (not slide) -> topple
+const float DOM_FRICTION = 0.6f;
 
 void setup(World& world) {
-    // Static ground.
-    world.addBody(Body(WIDTH * 0.5f, GROUND_TOP + 20.0f,
-                       std::make_shared<PolygonShape>(PolygonShape::box(WIDTH * 0.5f - 20, 20)), 0));
+    // Static ground (needs friction, else dominoes slide instead of toppling).
+    Body ground(WIDTH * 0.5f, GROUND_TOP + 20.0f,
+                std::make_shared<PolygonShape>(PolygonShape::box(WIDTH * 0.5f - 20, 20)), 0);
+    ground.setFriction(GROUND_FRICTION);
+    world.addBody(ground);
 
     std::vector<Body*> targets;
     float startX = 180.0f;
@@ -33,13 +37,13 @@ void setup(World& world) {
         float x = startX + i * SPACING;
         Body d(x, GROUND_TOP - DOM_HH,
                std::make_shared<PolygonShape>(PolygonShape::box(DOM_HW, DOM_HH)), 1.0f);
-        d.setFriction(0.5f);
+        d.setFriction(DOM_FRICTION);
         Body& ref = world.addBody(d);
         targets.push_back(&ref);
     }
 
     // Nudge the first domino so it topples toward the next.
-    targets[0]->angularVel = 3.5f;
+    targets[0]->angularVel = 2.5f;
 
     world.addForce(std::make_unique<GravityForce>(Vec2(0.0f, GRAVITY), targets));
 }
