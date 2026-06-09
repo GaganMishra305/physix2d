@@ -31,6 +31,7 @@ void setup(World& world) {
     // Lay the chain out horizontally so it drops and swings.
     for (int i = 1; i <= LINKS; ++i) {
         Body link(startX + i * LINK_LEN, startY, 6.0f, 1.0f);
+        link.setDamping(1.2f); // bleed off energy so the rope settles into a natural drape
         Body& ref = world.addBody(link);
         chain.push_back(&ref);
         targets.push_back(&ref);
