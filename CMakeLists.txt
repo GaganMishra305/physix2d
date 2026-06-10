@@ -22,6 +22,7 @@ add_library(physix2d
     src/Manifold.cpp
     src/Broadphase.cpp
     src/DistanceJoint.cpp
+    src/RevoluteJoint.cpp
     src/GravityForce.cpp
 )
 
