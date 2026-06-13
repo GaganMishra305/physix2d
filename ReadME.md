@@ -65,7 +65,7 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 - [x] Pendulum demo   
 - [x] Rope bridge demo   
 - [ ] Ragdoll demo   
-- [ ] Newton’s cradle demo   
+- [x] Newton’s cradle demo   
 
 ---
 
