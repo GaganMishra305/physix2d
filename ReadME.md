@@ -64,7 +64,7 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 - [ ] Island solver  
 - [x] Pendulum demo   
 - [x] Rope bridge demo   
-- [ ] Ragdoll demo   
+- [x] Ragdoll demo   
 - [x] Newton’s cradle demo   
 
 ---
