@@ -28,6 +28,12 @@ public:
     float angularDamping = 0.0f;
     float friction = 0.0f;    // Coulomb friction coefficient [0..1]
 
+    // Sleeping: a body with negligible motion for a short while goes to sleep
+    // and skips integration until woken by a real impact (a cheap rest island).
+    bool awake = true;
+    bool allowSleep = true;
+    float sleepTimer = 0.0f;
+
     std::shared_ptr<Shape> shape;
 
     // Circle body (legacy-friendly signature).
@@ -43,6 +49,8 @@ public:
     float getInvInertia() const;
     float getAngle() const;
     bool isStatic() const;
+    bool isAwake() const;
+    void wake();
     Shape* getShape() const;
 
     void setVel(Vec2 v);

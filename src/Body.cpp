@@ -61,11 +61,33 @@ void Body::applyTorque(float t) {
 }
 
 void Body::update(float dt) {
-    // Static bodies never move; just drop any accumulated force/torque.
-    if (invMass == 0.0f) {
+    // Static or sleeping bodies never move; just drop any accumulated force/torque.
+    if (invMass == 0.0f || !awake) {
         clearForces();
         return;
     }
+
+    // Sleep detection uses the *incoming* velocity -- i.e. the settled velocity
+    // left by last step's collision/constraint solve, BEFORE this frame's
+    // gravity is re-applied (otherwise fresh gravity always looks like motion).
+    if (allowSleep) {
+        const float linTol = 4.0f;     // px/s
+        const float angTol = 0.05f;    // rad/s
+        const float sleepDelay = 0.5f; // seconds of stillness before sleeping
+        if (vel.lengthSq() < linTol * linTol && std::abs(angularVel) < angTol) {
+            sleepTimer += dt;
+            if (sleepTimer >= sleepDelay) {
+                awake = false;
+                vel = Vec2(0.0f, 0.0f);
+                angularVel = 0.0f;
+                clearForces();
+                return;
+            }
+        } else {
+            sleepTimer = 0.0f;
+        }
+    }
+
     // Linear integration
     acc = forceAccumulator * invMass;
     vel = vel + acc * dt;
@@ -99,6 +121,8 @@ float Body::getInvMass() const { return invMass; }
 float Body::getInvInertia() const { return invInertia; }
 float Body::getAngle() const { return angle; }
 bool Body::isStatic() const { return invMass == 0.0f; }
+bool Body::isAwake() const { return awake; }
+void Body::wake() { awake = true; sleepTimer = 0.0f; }
 Shape* Body::getShape() const { return shape.get(); }
 Vec2 Body::getVel() const { return vel; }
 

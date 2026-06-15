@@ -19,10 +19,23 @@ bool Collision::resolve(Body& a, Body& b, float restitution) {
 }
 
 void Collision::resolveManifold(Body& a, Body& b, const Manifold& m, float restitution) {
-    float invMassA = a.getInvMass(), invMassB = b.getInvMass();
-    float invIA = a.getInvInertia(), invIB = b.getInvInertia();
+    // Sleeping bodies: if both are asleep, skip entirely (rest island). If a
+    // real impact is closing fast, wake them; gentle resting contact does not.
+    if (!a.isAwake() && !b.isAwake()) return;
+    {
+        Vec2 rvGross = b.vel - a.vel;
+        float closing = rvGross.dot(m.normal);
+        if (closing < -8.0f) { a.wake(); b.wake(); }
+    }
+
+    // A sleeping body acts immovable (invMass treated as 0) so it isn't nudged
+    // by resting neighbours, but an awake body can still rest against it.
+    float invMassA = a.isAwake() ? a.getInvMass() : 0.0f;
+    float invMassB = b.isAwake() ? b.getInvMass() : 0.0f;
+    float invIA = a.isAwake() ? a.getInvInertia() : 0.0f;
+    float invIB = b.isAwake() ? b.getInvInertia() : 0.0f;
     float invSum = invMassA + invMassB;
-    if (invSum == 0.0f) return; // both static
+    if (invSum == 0.0f) return; // both static or both effectively immovable
 
     const Vec2& n = m.normal;
     int count = m.contactCount > 0 ? m.contactCount : 1;
