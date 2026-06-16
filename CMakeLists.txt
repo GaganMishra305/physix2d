@@ -23,6 +23,7 @@ add_library(physix2d
     src/Broadphase.cpp
     src/DistanceJoint.cpp
     src/RevoluteJoint.cpp
+    src/Island.cpp
     src/GravityForce.cpp
 )
 

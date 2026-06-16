@@ -61,7 +61,7 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 ### Phase 3: Joints & Constraints
 - [x] `Joint` base class  
 - [x] `RevoluteJoint`, `DistanceJoint`  
-- [ ] Island solver  
+- [x] Island solver (union-find grouping + body sleeping / rest islands)  
 - [x] Pendulum demo   
 - [x] Rope bridge demo   
 - [x] Ragdoll demo   
