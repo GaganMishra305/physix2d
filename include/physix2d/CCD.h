@@ -14,6 +14,9 @@ public:
 
     // Swept `mover` (prev_pos -> pos) vs a stationary `target` circle.
     static float circleVsCircle(const Body& mover, const Body& target);
+
+    // Swept `mover` circle (prev_pos -> pos) vs a stationary `target` polygon.
+    static float circleVsPolygon(const Body& mover, const Body& target);
 };
 
 }
