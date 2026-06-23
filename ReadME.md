@@ -73,8 +73,8 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 - [x] Broad-phase (sweep & prune + uniform spatial hash)  
 - [x] Continuous collision detection (TOI)  
 - [x] Bullet through stack demo   
-- [ ] Loop track demo   
-- [ ] Stress test with thousands of objects   
+- [x] Loop track demo   
+- [x] Stress test with thousands of objects   
 
 ---
 
