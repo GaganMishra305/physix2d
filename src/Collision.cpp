@@ -4,6 +4,88 @@
 
 namespace physix2d {
 
+namespace {
+// scalar-cross-vector: w x r  =>  (-w*r.y, w*r.x)
+inline Vec2 crossSV(float w, const Vec2& r) { return Vec2(-w * r.y, w * r.x); }
+// vector-cross-vector (returns scalar z): a x b
+inline float crossVV(const Vec2& a, const Vec2& b) { return a.x * b.y - a.y * b.x; }
+}
+
+bool Collision::resolve(Body& a, Body& b, float restitution) {
+    Manifold m = CollisionDetector::detect(a, b);
+    if (!m.hit) return false;
+    resolveManifold(a, b, m, restitution);
+    return true;
+}
+
+void Collision::resolveManifold(Body& a, Body& b, const Manifold& m, float restitution) {
+    float invMassA = a.getInvMass(), invMassB = b.getInvMass();
+    float invIA = a.getInvInertia(), invIB = b.getInvInertia();
+    float invSum = invMassA + invMassB;
+    if (invSum == 0.0f) return; // both static
+
+    const Vec2& n = m.normal;
+    int count = m.contactCount > 0 ? m.contactCount : 1;
+    float mu = std::sqrt(a.friction * b.friction);
+
+    for (int i = 0; i < m.contactCount; ++i) {
+        Vec2 contact = m.contacts[i];
+        Vec2 ra = contact - a.pos;
+        Vec2 rb = contact - b.pos;
+
+        // Relative velocity at the contact point.
+        Vec2 va = a.vel + crossSV(a.angularVel, ra);
+        Vec2 vb = b.vel + crossSV(b.angularVel, rb);
+        Vec2 rv = vb - va;
+        float velAlongNormal = rv.dot(n);
+        if (velAlongNormal > 0.0f) continue; // separating
+
+        float raCrossN = crossVV(ra, n);
+        float rbCrossN = crossVV(rb, n);
+        float denom = invSum + invIA * raCrossN * raCrossN + invIB * rbCrossN * rbCrossN;
+        if (denom <= 1e-12f) continue;
+
+        float j = -(1.0f + restitution) * velAlongNormal / denom;
+        j /= count; // distribute across contacts
+        Vec2 impulse = n * j;
+
+        a.vel = a.vel - impulse * invMassA;
+        a.angularVel -= invIA * crossVV(ra, impulse);
+        b.vel = b.vel + impulse * invMassB;
+        b.angularVel += invIB * crossVV(rb, impulse);
+
+        // --- Friction (recompute rv after normal impulse) ---
+        va = a.vel + crossSV(a.angularVel, ra);
+        vb = b.vel + crossSV(b.angularVel, rb);
+        rv = vb - va;
+        Vec2 t = rv - n * rv.dot(n);
+        if (t.lengthSq() <= 1e-8f) continue;
+        t = t.normalized();
+        float raCrossT = crossVV(ra, t);
+        float rbCrossT = crossVV(rb, t);
+        float denomT = invSum + invIA * raCrossT * raCrossT + invIB * rbCrossT * rbCrossT;
+        if (denomT <= 1e-12f) continue;
+        float jt = -rv.dot(t) / denomT;
+        jt /= count;
+        float maxF = mu * std::abs(j);
+        jt = std::max(-maxF, std::min(jt, maxF));
+        Vec2 frictionImpulse = t * jt;
+
+        a.vel = a.vel - frictionImpulse * invMassA;
+        a.angularVel -= invIA * crossVV(ra, frictionImpulse);
+        b.vel = b.vel + frictionImpulse * invMassB;
+        b.angularVel += invIB * crossVV(rb, frictionImpulse);
+    }
+
+    // Positional correction (Baumgarte), linear only.
+    const float percent = 0.4f;
+    const float slop = 0.02f;
+    float corr = std::max(m.penetration - slop, 0.0f) / invSum * percent;
+    Vec2 correction = n * corr;
+    a.setPos(a.pos - correction * invMassA);
+    b.setPos(b.pos + correction * invMassB);
+}
+
 bool Collision::resolveCircleVsCircle(Body& a, Body& b, float restitution) {
     Vec2 d = b.getPosition() - a.getPosition();
     float dist2 = d.x*d.x + d.y*d.y;
