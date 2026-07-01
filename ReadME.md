@@ -79,12 +79,12 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 ---
 
 ### Phase 5: Particles & Fluids
-- [ ] `Particle` + `ParticleSystem`  
-- [ ] Particle contacts  
-- [ ] Water fountain demo 💧  
-- [ ] Sand pile demo 🏖  
-- [ ] Smoke effect demo ☁️  
-- [ ] Liquid in a box demo 🌊  
+- [x] `Particle` + `ParticleSystem`  
+- [x] Particle contacts  
+- [x] Water fountain demo   
+- [x] Sand pile demo   
+- [x] Smoke effect demo   
+- [x] Liquid in a box demo   
 
 ---
 
