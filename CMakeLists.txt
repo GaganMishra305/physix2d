@@ -26,6 +26,7 @@ add_library(physix2d
     src/ParticleSystem.cpp
     src/DistanceJoint.cpp
     src/RevoluteJoint.cpp
+    src/RopeJoint.cpp
     src/Island.cpp
     src/GravityForce.cpp
 )
