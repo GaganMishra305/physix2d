@@ -24,6 +24,7 @@ add_library(physix2d
     src/SweepAndPrune.cpp
     src/CCD.cpp
     src/ParticleSystem.cpp
+    src/SoftBody.cpp
     src/DistanceJoint.cpp
     src/RevoluteJoint.cpp
     src/RopeJoint.cpp
