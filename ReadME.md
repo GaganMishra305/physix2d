@@ -89,12 +89,12 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 ---
 
 ### Phase 6: Soft Bodies (Rope, Cloth, Deformables)
-- [ ] `Rope`, `RopeJoint`  
-- [ ] `SoftBody`, `Cloth`  
-- [ ] Rope swing demo 🪢  
-- [ ] Flag in wind demo 🏴  
-- [ ] Jelly cube demo 🍮  
-- [ ] Cloth + fluid interaction demo 🌊  
+- [x] `Rope`, `RopeJoint`  
+- [x] `SoftBody`, `Cloth` (Verlet + position-based dynamics)  
+- [x] Rope swing demo   
+- [x] Flag in wind demo   
+- [x] Jelly cube demo   
+- [x] Cloth + fluid interaction demo   
 
 ---
 
@@ -108,8 +108,8 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 ---
 
 ### BONUS: Advanced Simulations -
-- [ ] Clothe simulation
-- [ ] Fluid simulation
-- [ ] Smoke simulation
+- [x] Clothe simulation (redeemed! PBD cloth in flag + cloth-fluid demos)
+- [x] Fluid simulation (particle fluids: fountain + liquid-in-box)
+- [x] Smoke simulation
 
 ---
