@@ -25,6 +25,7 @@ add_library(physix2d
     src/CCD.cpp
     src/ParticleSystem.cpp
     src/SoftBody.cpp
+    src/Profiler.cpp
     src/DistanceJoint.cpp
     src/RevoluteJoint.cpp
     src/RopeJoint.cpp
