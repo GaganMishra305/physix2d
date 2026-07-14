@@ -99,11 +99,11 @@ https://github.com/user-attachments/assets/0c186c4a-8e22-494d-9b11-7272a2ffe7fe
 ---
 
 ### Phase 7: Polishing + Showcase
-- [ ] World callbacks (begin/end contact)  
-- [ ] Profiler & memory manager  
-- [ ] Mixed scene demo 🎮  
-- [ ] Destructible bridge demo 🏗  
-- [ ] Tornado effect demo 🌀  
+- [x] World callbacks (begin/end contact)  
+- [x] Profiler & memory manager (Profiler + ObjectPool)  
+- [x] Mixed scene demo   
+- [x] Destructible bridge demo   
+- [x] Tornado effect demo   
 
 ---
 
