@@ -38,6 +38,21 @@ FORCES KNOW WHICH BODY THEY HAVE TO BE APPLIED ON [optimize using ecs later]
 * issue1: jittering due to constant collision and force updates ---> solution is velocity dampening(?)
 
 ***phase 2 complete ---> added forces(continuous check) and collisions(instantaneous check)***
+
+## Phase 2.5 -- proper rigid bodies (SAT + rotation)
+The brute-force circle-only collisions were upgraded into a real narrow phase:
+
+- **Vec2 fixed**: `dot` was returning `int` (!), `cross` returned a bogus Vec2. Now `dot`->float, `cross`->scalar, all ops const-correct + helpers (`normalized`, `distance`, `lengthSq`).
+- **Inverse mass + static bodies**: `mass <= 0` => `invMass = 0` (immovable). Floors/walls are now just static bodies. Solver is branch-free on invMass.
+- **Linear damping**: frame-rate-independent `vel *= 1/(1 + damping*dt)` finally kills the jitter from Phase 2 (answered the `velocity dampening(?)` TODO).
+- **Shape system**: `Shape` base -> `CircleShape` / `PolygonShape`. Bodies own a `shared_ptr<Shape>`; legacy circle constructor kept so old demos never broke.
+- **Rotational dynamics**: bodies gained angle/angularVel/torque + moment of inertia (disc + convex-polygon formulas).
+- **Narrow phase (SAT)**: circle-circle, circle-polygon (Voronoi regions), polygon-polygon (min-penetration axis + reference/incident face clipping -> contact manifold).
+- **Impulse solver**: angular impulses at each contact point + Coulomb friction (clamped to the cone) + Baumgarte positional correction. Verified: a box dropped on a static floor settles flat, no tunneling, no phantom spin.
+- **Broad phase**: uniform spatial hash turns O(n^2) into ~O(n) candidate pairs.
+
+**LESSON: build the abstraction (Shape) BEFORE the feature (polygons). The cloth demo failed exactly because it bolted positional constraints onto Euler velocity integration with no framework -- removed it; will redo on a real constraint system in Phase 3.**
+
 ---
 ---
 
