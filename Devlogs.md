@@ -57,3 +57,36 @@ The brute-force circle-only collisions were upgraded into a real narrow phase:
 ---
 
 # Phase 3
+## Joints & Constraints
+Built a real constraint framework -- the thing the original cloth never had.
+- `Joint` base -> `DistanceJoint` (velocity-impulse + Baumgarte), `RevoluteJoint` (2x2 effective-mass pin), `RopeJoint` (tension-only).
+- `World` solves joints each step for N iterations.
+- `IslandBuilder` (union-find; static bodies don't bridge islands) + body **sleeping/rest islands**.
+- Demos: pendulum, rope bridge, ragdoll, Newton's cradle.
+**LESSON:** velocity-impulse constraints coexist with the Euler integrator because they correct *velocity*, not just position -- no desync.
+
+# Phase 4
+## Advanced Collisions
+- **Sweep-and-prune** broad phase (verified identical pairs to brute force).
+- **CCD / TOI**: analytic swept circle-vs-circle and circle-vs-polygon (expanded faces + vertex caps). Verified a 4000px/s bullet is caught at the surface instead of tunneling.
+- Demos: bullet-through-stack, loop track (centripetal), stress test (grid pruned to ~0.15% of brute force at N=3000).
+
+# Phase 5
+## Particles & Fluids
+- `Particle` + `ParticleSystem` (emit/integrate/lifetime/bounds), spatial-hash particle contacts + `clampToBounds` (PBD ordering).
+- Demos: water fountain, sand pile, smoke (alpha fade), liquid-in-box (sloshing).
+
+# Phase 6
+## Soft Bodies -- THE CLOTH REDEMPTION
+- `SoftBody`: **Verlet integration + position-based distance constraints**. Because velocity == `pos - prev`, constraint position-edits feed straight back into motion. This is *exactly* what the original cloth got wrong (Euler velocity + positional sticks -> desync -> explosion).
+- rope/cloth factories (structural + shear constraints). `RopeJoint` for rigid ropes.
+- Demos: rope swing, flag in wind, jelly cube, cloth+fluid (two-way coupling, verified stable).
+
+# Phase 7
+## Polishing + Showcase
+- `World` begin/end **contact callbacks** (SAT-confirmed, diffed vs last step).
+- `Profiler` (scoped timers) + `ObjectPool<T>` (free-list allocator).
+- Showcase demos: mixed scene (wrecking ball + sparks via callbacks), destructible bridge (breakable links), tornado (vortex force field).
+
+---
+**ROADMAP COMPLETE (Phases 1-7 + bonus).** 24 demos. The cloth that was deleted in Phase 3's first commit was rebuilt in `clothe_simulation.cpp` on the SoftBody foundation -- full circle.
