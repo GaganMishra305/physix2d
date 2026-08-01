@@ -31,6 +31,7 @@ add_library(physix2d
     src/RopeJoint.cpp
     src/Island.cpp
     src/GravityForce.cpp
+    src/GravitationalForce.cpp
 )
 
 target_include_directories(physix2d PUBLIC include ${SFML_INCLUDE_DIRS})
