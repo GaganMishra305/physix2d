@@ -15,16 +15,16 @@ A single nudge topples a full polygon-collision cascade.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/domino_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/domino_demo.gif" width="640"></a>
 
-### 2. Cloth + Fluid
+### 2. N-Body Gravity
+A massive star with planets on circular and elliptical orbits under Newtonian attraction, tracing fading trails.
+
+<a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/gravity_orbit_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/gravity_orbit_demo.gif" width="640"></a>
+
+### 3. Cloth + Fluid
 Water poured onto a hanging cloth net — two-way coupling: the water sags the cloth, the
 cloth catches and deflects the water.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/cloth_fluid_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/cloth_fluid_demo.gif" width="640"></a>
-
-### 3. Tornado
-A wandering vortex force field — swirl + inward pull + lift — sucks up and flings debris.
-
-<a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/tornado_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/tornado_demo.gif" width="640"></a>
 
 ---
 
@@ -34,172 +34,178 @@ A wandering vortex force field — swirl + inward pull + lift — sucks up and f
 <tr>
 <td width="50%" valign="top">
 
-**4. Mixed Scene** — a wrecking ball on a joint chain smashes a box pyramid; spark particles burst on impact via contact callbacks.
+**4. Tornado** — a wandering vortex force field sucks up and flings debris.
+
+<a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/tornado_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/tornado_demo.gif" width="100%"></a>
+
+</td>
+<td width="50%" valign="top">
+
+**5. Mixed Scene** — a wrecking ball on a joint chain smashes a box pyramid; spark particles burst on impact via contact callbacks.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/mixed_scene_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/mixed_scene_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**5. Stress Test** — 1500 balls resolved through a spatial-hash broad phase.
+**6. Stress Test** — 1500 balls resolved through a spatial-hash broad phase.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/stress_test_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/stress_test_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**6. Destructible Bridge** — distance-joint links snap past a stretch threshold.
+**7. Destructible Bridge** — distance-joint links snap past a stretch threshold.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/destructible_bridge_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/destructible_bridge_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**7. Bullet Through Stack** — CCD catches a 4000 px/s bullet instead of tunneling.
+**8. Bullet Through Stack** — CCD catches a 4000 px/s bullet instead of tunneling.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/bullet_through_stack_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/bullet_through_stack_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**8. Ragdoll** — revolute-jointed torso/head/limbs flop and settle.
+**9. Ragdoll** — revolute-jointed torso/head/limbs flop and settle.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/ragdoll_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/ragdoll_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**9. Newton's Cradle** — near-elastic momentum transfer; only the far ball ejects.
+**10. Newton's Cradle** — near-elastic momentum transfer; only the far ball ejects.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/newtons_cradle_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/newtons_cradle_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**10. Flag in Wind** — a left-edge-pinned cloth ripples in a gusting wind field.
+**11. Flag in Wind** — a left-edge-pinned cloth ripples in a gusting wind field.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/flag_in_wind_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/flag_in_wind_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**11. Cloth Simulation** — a position-based-dynamics curtain.
+**12. Cloth Simulation** — a position-based-dynamics curtain.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/clothe_simulation.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/clothe_simulation.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**12. Water Fountain** — a particle jet arcs under gravity and pools.
+**13. Water Fountain** — a particle jet arcs under gravity and pools.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/water_fountain_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/water_fountain_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**13. Liquid in a Box** — a body of water sloshes as gravity rocks side to side.
+**14. Liquid in a Box** — a body of water sloshes as gravity rocks side to side.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/liquid_in_box_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/liquid_in_box_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**14. Loop Track** — a ball races the inside of a loop, held by centripetal contact.
+**15. Loop Track** — a ball races the inside of a loop, held by centripetal contact.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/loop_track_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/loop_track_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**15. Sand Pile** — grains trickle down and heap up.
+**16. Sand Pile** — grains trickle down and heap up.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/sand_pile_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/sand_pile_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**16. Smoke** — buoyant particles rise, expand, and fade out.
+**17. Smoke** — buoyant particles rise, expand, and fade out.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/smoke_effect_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/smoke_effect_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**17. Jelly Cube** — an unpinned soft-body grid squishes and wobbles.
+**18. Jelly Cube** — an unpinned soft-body grid squishes and wobbles.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/jelly_cube_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/jelly_cube_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**18. Box Stack** — a pyramid settles on resting contacts.
+**19. Box Stack** — a pyramid settles on resting contacts.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/box_stack_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/box_stack_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**19. Rope Bridge** — a plank walkway of revolute-jointed segments.
+**20. Rope Bridge** — a plank walkway of revolute-jointed segments.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/rope_bridge_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/rope_bridge_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**20. Rope Swing** — a weighted rope swings and settles.
+**21. Rope Swing** — a weighted rope swings and settles.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/rope_swing_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/rope_swing_demo.gif" width="100%"></a>
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-**21. Pendulum** — a distance-joint chain hangs and swings.
+**22. Pendulum** — a distance-joint chain hangs and swings.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/pendulum_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/pendulum_demo.gif" width="100%"></a>
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-**22. Ball in Box** — bouncing balls with damping and friction.
+**23. Ball in Box** — bouncing balls with damping and friction.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/ball_in_box_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/ball_in_box_demo.gif" width="100%"></a>
 
 </td>
-<td width="50%" valign="top">
-
-**23. Colliding Balls** — circle-circle impulse collisions.
-
-<a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/colliding_balls_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/colliding_balls_demo.gif" width="100%"></a>
-
-</td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-**24. Bouncing Balls** — where it all started.
+**24. Colliding Balls** — circle-circle impulse collisions.
+
+<a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/colliding_balls_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/colliding_balls_demo.gif" width="100%"></a>
+
+</td>
+<td width="50%" valign="top">
+
+**25. Bouncing Balls** — where it all started.
 
 <a href="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/bouncing_balls_demo.mp4"><img src="https://github.com/GaganMishra305/physix2d/releases/download/demo-reel-v1/bouncing_balls_demo.gif" width="100%"></a>
 
 </td>
-<td width="50%" valign="top"></td>
 </tr>
 </table>
 
@@ -221,7 +227,7 @@ brew install cmake pkg-config sfml@2
 ./examples/build_examples.sh
 
 # 4. Run a demo
-./examples/build/domino_demo
+./examples/build/gravity_orbit_demo
 ```
 
 Record a demo to PNG frames:
@@ -240,6 +246,7 @@ PHYSIX_RECORD=1 PHYSIX_OUTDIR=/tmp/frames PHYSIX_FRAMES=300 PHYSIX_SUBSTEPS=2 \
   rotational dynamics (angle, angular velocity, torque, moment of inertia).
 - **Solver** — impulse resolution with angular terms, Coulomb friction, Baumgarte
   positional correction; inverse-mass static bodies; body sleeping / rest islands.
+- **Forces** — uniform gravity and Newtonian N-body gravitational attraction.
 - **Joints** — DistanceJoint, RevoluteJoint, RopeJoint; union-find island builder.
 - **Broad phase** — uniform spatial hash and sweep-and-prune.
 - **Continuous collision (CCD)** — analytic swept circle-vs-circle and circle-vs-polygon TOI.
@@ -282,7 +289,7 @@ PHYSIX_RECORD=1 PHYSIX_OUTDIR=/tmp/frames PHYSIX_FRAMES=300 PHYSIX_SUBSTEPS=2 \
 - [x] Mixed scene / destructible bridge / tornado demos
 
 ### Bonus: Advanced Simulations
-- [x] Cloth / Fluid / Smoke simulations
+- [x] Cloth / Fluid / Smoke simulations + N-body gravity
 
 ---
 
